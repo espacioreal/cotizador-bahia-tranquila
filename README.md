@@ -77,7 +77,7 @@ cotizador-bahia-tranquila/
 
 ---
 
-#🔧 Instalación y configuración
+Instalación y configuración
 
 Requisitos previos
 
@@ -139,7 +139,7 @@ http://localhost:5173/
 
 ---
 
-#📦 Scripts disponibles
+Scripts disponibles
 
 En el directorio del proyecto, podés ejecutar:
 
@@ -159,7 +159,7 @@ Ejecuta ESLint para verificar errores en el código.
 
 ---
 
-#🌐 Deployment
+Deployment
 
 Opción 1: GitHub Pages (Recomendado)
 
@@ -206,7 +206,7 @@ Opción 3: Netlify
 
 ---
 
-#🧮 Lógica de cálculo
+Lógica de cálculo
 
 Factores de riesgo por ubicación
 
@@ -235,7 +235,7 @@ TOTAL = Cotización Base + Cobertura Viento + Cobertura Tormenta
 
 ---
 
-#🎨 Personalización
+Personalización
 
 Modificar precios base
 
