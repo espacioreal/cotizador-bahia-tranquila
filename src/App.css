@@ -1,0 +1,164 @@
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import AlertaBanner from './components/AlertaBanner';
+import Formulario from './components/Formulario';
+import Spinner from './components/Spinner';
+import Resultado from './components/Resultado';
+import cotizador from './helpers/cotizador';
+
+// ============================================
+// COMPONENTE PRINCIPAL: App
+// ============================================
+// Este es el componente raíz que orquesta toda la aplicación.
+// Maneja el estado global y coordina la comunicación entre componentes.
+// Usamos el patrón de "lifting state up" para mantener el estado
+// en el componente padre y pasarlo como props a los hijos.
+
+function App() {
+  // ============================================
+  // Estado del formulario
+  // ============================================
+  // Centralizamos todos los datos del formulario en un solo objeto
+  // para facilitar su manejo y validación
+  const [formData, setFormData] = useState({
+    nombre: '',
+    tipoPropiedad: 'casa',
+    ubicacion: 'centro',
+    metrosCuadrados: ''
+  });
+
+  // ============================================
+  // Estados de control de UI
+  // ============================================
+  const [resultado, setResultado] = useState(null); // Almacena la cotización calculada
+  const [loading, setLoading] = useState(false);    // Indica si se está procesando
+  const [errores, setErrores] = useState({});       // Almacena errores de validación
+
+  // ============================================
+  // useEffect: Limpieza del resultado
+  // ============================================
+  // Cuando el usuario modifica algún campo relevante del formulario,
+  // limpiamos el resultado anterior para evitar confusiones.
+  // Esto mejora la UX al indicar claramente que la cotización anterior
+  // ya no es válida.
+  useEffect(() => {
+    if (resultado) {
+      setResultado(null);
+    }
+    // Nota: omitimos 'resultado' de las dependencias intencionalmente
+    // para evitar un loop infinito
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData.tipoPropiedad, formData.ubicacion, formData.metrosCuadrados]);
+
+  // ============================================
+  // Handler: Cambios en el formulario
+  // ============================================
+  // Manejamos todos los inputs del formulario con un único handler genérico.
+  // Esto reduce código duplicado y facilita el mantenimiento.
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    
+    // Actualizamos el estado del formulario
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Limpiamos el error de ese campo específico cuando el usuario empieza a escribir.
+    // Esto proporciona feedback inmediato y mejora la experiencia.
+    if (errores[name]) {
+      setErrores(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  // ============================================
+  // Handler: Submit del formulario
+  // ============================================
+  // Procesa la solicitud de cotización:
+  // 1. Valida los datos
+  // 2. Muestra loading state
+  // 3. Simula procesamiento (en producción sería una llamada a API)
+  // 4. Muestra el resultado
+  const handleSubmit = () => {
+    // Validamos el formulario usando nuestro helper
+    const nuevosErrores = cotizador.validar(formData);
+    
+    // Si hay errores, los mostramos y detenemos el proceso
+    if (Object.keys(nuevosErrores).length > 0) {
+      setErrores(nuevosErrores);
+      return;
+    }
+
+    // Simulamos un delay de procesamiento para mejorar la percepción de valor
+    // y dar sensación de que se está haciendo un cálculo complejo.
+    // En una aplicación real, aquí iría una llamada a una API backend.
+    setLoading(true);
+    setResultado(null);
+
+    setTimeout(() => {
+      const cotizacion = cotizador.calcular(formData);
+      setResultado(cotizacion);
+      setLoading(false);
+    }, 1200); // 1.2 segundos de delay
+  };
+
+  // ============================================
+  // Render
+  // ============================================
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Header principal */}
+      <Header />
+
+      {/* Contenido principal */}
+      <main className="container mx-auto px-4 py-8 max-w-5xl">
+        <div className="bg-white rounded-xl shadow-2xl p-8">
+          {/* Banner de alerta informativa */}
+          <AlertaBanner />
+
+          {/* Sección introductoria */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              Cotizá tu seguro en 3 simples pasos
+            </h2>
+            <p className="text-gray-600">
+              Completá el formulario con los datos de tu propiedad y obtené una cotización 
+              personalizada al instante, adaptada a las condiciones climáticas de Bahía Blanca.
+            </p>
+          </div>
+
+          {/* Formulario de cotización */}
+          <Formulario 
+            formData={formData}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+            errores={errores}
+          />
+
+          {/* Estado de carga */}
+          {loading && <Spinner />}
+
+          {/* Resultado de la cotización */}
+          {resultado && !loading && (
+            <Resultado 
+              resultado={resultado} 
+              nombre={formData.nombre} 
+            />
+          )}
+        </div>
+
+        {/* Footer con información del proyecto */}
+        <div className="mt-8 text-center text-gray-600">
+          <p className="text-sm">
+            Proyecto Final React - Carrera Front End
+          </p>
+          <p className="text-xs text-gray-500 mt-1">
+            Bahía Blanca, Buenos Aires • 2025
+          </p>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+export default App;
