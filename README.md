@@ -15,9 +15,8 @@ Se ha implementado un sistema de **historial de cotizaciones** persistente utili
 
 ---
 
-## Demo en vivo
-
-GitHub Pages: [https://github.com/espacioreal/cotizador-bahia-tranquila/](https://github.com/espacioreal/cotizador-bahia-tranquila/)
+### Ver proyecto online:
+https://espacioreal.github.io/cotizador-bahia-tranquila/
 
 ---
 
