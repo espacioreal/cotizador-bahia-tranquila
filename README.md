@@ -2,7 +2,7 @@
 
 Simulador Interactivo de Cotización de Seguros para Viviendas con gestión de Historial.
 
-**Proyecto Final React - Carrera Front End**
+**Proyecto Final React - Desarrollador Web Frontend - UNTREF**
 
 ---
 
@@ -54,27 +54,27 @@ GitHub Pages: [https://github.com/espacioreal/cotizador-bahia-tranquila/](https:
 cotizador-bahia-tranquila/
 │
 ├── src/
-│   ├── components/          # Componentes reutilizables
-│   │   ├── Header.jsx       # Navegación y logo
-│   │   ├── Footer.jsx       # Pie de página
-│   │   ├── Formulario.jsx   # Lógica del formulario
-│   │   ├── Resultado.jsx    # Visualización de cotización
-│   │   ├── Spinner.jsx      # Indicador de carga
-│   │   └── AlertaBanner.jsx # Mensajes de validación
+│   ├── components/          
+│   │   ├── Header.jsx       
+│   │   ├── Footer.jsx       
+│   │   ├── Formulario.jsx   
+│   │   ├── Resultado.jsx    
+│   │   ├── Spinner.jsx      
+│   │   └── AlertaBanner.jsx 
 │   │
-│   ├── context/             # Estado Global
-│   │   └── CotizacionesContext.jsx  # Provider y lógica de historial
+│   ├── context/             
+│   │   └── CotizacionesContext.jsx  
 │   │
-│   ├── pages/               # Vistas (Rutas)
-│   │   ├── Home.jsx         # Página principal del cotizador
-│   │   └── Historial.jsx    # Página de tabla de historial
+│   ├── pages/               
+│   │   ├── Home.jsx         
+│   │   └── Historial.jsx    
 │   │
-│   ├── helpers/             # Utilidades
-│   │   └── cotizador.js     # Algoritmos de cálculo y datos
+│   ├── helpers/             
+│   │   └── cotizador.js     
 │   │
-│   ├── App.css              # Estilos del layout principal
-│   ├── index.css            # Estilos globales y directivas
-│   ├── App.jsx              # Configuración de Routing y Provider
-│   └── main.jsx             # Punto de entrada
+│   ├── App.css              
+│   ├── index.css            
+│   ├── App.jsx              
+│   └── main.jsx             
 │
 └── README.md
