@@ -1,4 +1,4 @@
-# Cotizador de Seguros - Bahía Tranquila 🏡
+# Cotizador de Seguros - Bahía Tranquila 
 
 Simulador Interactivo de Cotización de Seguros para Viviendas con gestión de Historial.
 
@@ -6,7 +6,7 @@ Simulador Interactivo de Cotización de Seguros para Viviendas con gestión de H
 
 ---
 
-## 📋 Descripción
+## Descripción
 
 Aplicación web desarrollada en React que permite cotizar seguros de hogar de manera interactiva. El sistema calcula costos basándose en la información de la propiedad y factores de riesgo específicos de **Bahía Blanca**, considerando eventos climáticos recientes.
 
@@ -15,13 +15,13 @@ Se ha implementado un sistema de **historial de cotizaciones** persistente utili
 
 ---
 
-## 🚀 Demo en vivo
+## Demo en vivo
 
 GitHub Pages: [https://github.com/espacioreal/cotizador-bahia-tranquila/](https://github.com/espacioreal/cotizador-bahia-tranquila/)
 
 ---
 
-## ✨ Características principales
+## Características principales
 
 - **Gestión de Estado Global:** Uso de `Context API` para manejar la data fluida entre componentes.
 - **Navegación SPA:** Implementación de `react-router-dom` con rutas para Inicio e Historial sin recargas.
@@ -31,7 +31,7 @@ GitHub Pages: [https://github.com/espacioreal/cotizador-bahia-tranquila/](https:
 
 ---
 
-## 🛠 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 **Core:**
 - React 19
@@ -48,7 +48,7 @@ GitHub Pages: [https://github.com/espacioreal/cotizador-bahia-tranquila/](https:
 
 ---
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 ```text
 cotizador-bahia-tranquila/
