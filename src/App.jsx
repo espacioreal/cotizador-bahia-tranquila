@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { CotizacionesProvider } from './context/CotizacionesContext';
 
 import Header from './components/Header';
@@ -9,7 +9,6 @@ import Historial from './pages/Historial';
 
 function App() {
   return (
-    
     <CotizacionesProvider>
       <Router>
         <div style={{ minHeight: '100vh', backgroundColor: '#f8f9fa', display: 'flex', flexDirection: 'column' }}>
